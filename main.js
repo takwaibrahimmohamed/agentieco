@@ -1,5 +1,6 @@
 let started = false
 const slideContainer = document.querySelector('.testmonSlide');
+const carousel = document.querySelector(".cartSlide")
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
     const logo = document.querySelector('header .logo img');
@@ -8,7 +9,7 @@ window.addEventListener('scroll', function() {
     const section = document.querySelector(".Achievement")
     const ratedProject = document.querySelectorAll(".ratedProject h2 span")
 
-    console.log(section.offsetTop)
+   
     if (window.scrollY > 100) {
       header.classList.add('scrolled');
       logo.classList.add('scrolled');
@@ -38,7 +39,6 @@ window.addEventListener('scroll', function() {
  
   const startCount=(el)=>{
     let goal = el.dataset.goal
-    console.log(goal)
    const count = setInterval(()=>{
   el.textContent++
 if(el.textContent == goal){
@@ -54,3 +54,63 @@ function nextSlide() {
 }
 // 
 setInterval(nextSlide, 4000);
+
+
+
+const prevButton = document.querySelector('.prev-button');
+const nextButton = document.querySelector('.next-button');
+let currentIndex = 0;
+let isDragging = false;
+let startPosX = 0;
+let currentTranslateX = 0;
+let animationId = null;
+
+function goToSlide(index) {
+  carousel.style.transform = `translateX(-${index * 100}%)`;
+  currentTranslateX = -index * carousel.offsetWidth;
+}
+
+function showPrevSlide() {
+  currentIndex = (currentIndex - 1 + carousel.children.length) % carousel.children.length;
+  goToSlide(currentIndex);
+}
+
+function showNextSlide() {
+  currentIndex = (currentIndex + 1) % carousel.children.length;
+  goToSlide(currentIndex);
+}
+
+
+carousel.addEventListener('mousedown', (event) => {
+  isDragging = true;
+  startPosX = event.clientX;
+  currentTranslateX = -currentIndex * carousel.offsetWidth;
+
+  cancelAnimationFrame(animationId);
+});
+
+carousel.addEventListener('mousemove', (event) => {
+  if (!isDragging) return;
+
+  const moveX = event.clientX - startPosX;
+  const translateX = currentTranslateX + moveX;
+  carousel.style.transform = `translateX(${translateX}px)`;
+});
+
+carousel.addEventListener('mouseup', () => {
+  isDragging = false;
+  const moveX = -currentIndex * carousel.offsetWidth - currentTranslateX;
+
+  if (moveX > 100) {
+    showPrevSlide();
+  } else if (moveX < -100) {
+    showNextSlide();
+  } else {
+    goToSlide(currentIndex);
+  }
+});
+
+carousel.addEventListener('mouseleave', () => {
+  isDragging = false;
+  goToSlide(currentIndex);
+});
