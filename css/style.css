@@ -1870,7 +1870,7 @@ min-height: 40px;
   }
 /* start  .motion  */
 .motion{
-  min-height: 250vh;
+  min-height: 170vh;
 }
 .motion .content{
  flex-direction: column;
@@ -1912,7 +1912,7 @@ min-height: 40px;
  
   background-size: 110%  60%;
 
-top: 230vh;
+top: 150vh;
  
 }
 .anounce .anouncecontent{
@@ -1926,6 +1926,7 @@ top: 230vh;
 /* start  about   */
 .aboutUs{
   padding-bottom: 180px;
+  margin-top: 100px;
 }
 .aboutUs .content{
  flex-direction: column;
