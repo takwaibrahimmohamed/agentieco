@@ -1974,7 +1974,7 @@ flex-direction: column;
 /* end HowItWork */
 /* start services  */
 .services{
-  min-height: 285vh;
+  min-height: 205vh;
 }
 .services .content{
   flex-direction: column;
