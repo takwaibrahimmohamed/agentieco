@@ -8,7 +8,7 @@
     overflow-x: hidden;
     font-family: 'Changa', sans-serif !important;
     background-color: #fafafa;
-    /* min-height: 1000px; */
+    min-height: 1000px;
   }
   ul{
     list-style: none;
