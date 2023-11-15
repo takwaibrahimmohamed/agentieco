@@ -7,11 +7,12 @@ const  linksLi =document.querySelector("header .links .linksList")
 const  linksList =document.querySelectorAll("header .links .linksList .linksListLi")
 const logo = document.querySelector('header .logo img');
 const header = document.querySelector('header');
-
-
+const togglinksList=document.querySelector(" header .links .linksList")
+const togglinksListIcon=document.querySelectorAll(" header .links .linksList .linkDrop ")
+const moreContent = document.querySelector(".moreContent")
+const allSection = document.querySelectorAll(".allSections section")
 window.addEventListener('scroll', function() {
-   
-   
+
     const linksList=document.querySelectorAll(".linksListLi")
     const butonside=document.querySelectorAll(" .butonside .btn")
     const section = document.querySelector(".Achievement")
@@ -43,13 +44,12 @@ window.addEventListener('scroll', function() {
             })
             logo.src="https://agentieco.themetags.com/wp-content/uploads/2023/07/agentieco-logo-2.png"
         
-       
-         console.log("h")
+      
         butonside[0].classList.remove('scrolled');
       
      
     }
- 
+
     if(window.scrollY >= section.offsetTop){
       if(!started){
         ratedProject.forEach((num)=>startCount(num))
@@ -143,19 +143,13 @@ toggle.addEventListener(('click'),()=>{
 // console.log(header.classList)
  
   links.classList.toggle("active")
-  if(links.classList.contains("active")){
-    console.log("yes")
-    document.querySelector(".toggleImg").classList.add("active")
-  }
-  else{
-    console.log("no")
-    document.querySelector(".toggleImg").classList.remove("active")
-  }
+
   linksLi.classList.toggle("active")
 })
-// /console.log(linksList)
+
 linksList.forEach((item)=>{
 item.addEventListener(('click'),()=>{
 
 })
 })
+

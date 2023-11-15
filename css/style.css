@@ -8,7 +8,7 @@
     overflow-x: hidden;
     font-family: 'Changa', sans-serif !important;
     background-color: #fafafa;
-    min-height: 1000px;
+    /* min-height: 1000px; */
   }
   ul{
     list-style: none;
@@ -18,12 +18,9 @@
     text-decoration: none;
   }
 
-
-
-
-
-
-
+  /* .moreContent{
+    height: 100vh;
+  } */
 
   header{
     position: fixed;
@@ -35,6 +32,7 @@
   min-height: 70px;
   -webkit-backface-visibility: hidden;
   }
+
   header.scrolled {
     background-color: white; /* Background color on scroll */
     transition: 0.7s ease;
@@ -56,6 +54,7 @@
   .container{
     padding-left:5% ;
     padding-right:5% ;
+    /* content-visibility: auto; */
   }
   .SecContainer{
     padding-left:2% ;
@@ -106,8 +105,7 @@
 position: absolute;
 left: -40px;
 top: calc(100% + 10px);
-    opacity: 0;
-    visibility: hidden;
+  display: none;
     width: 220px;
     background-color: #fff;
     list-style-type: none;
@@ -117,8 +115,7 @@ top: calc(100% + 10px);
     transition: .4s;
   }
   .links ul li:hover .dropdown{
-    opacity: 1;
-    visibility: visible;
+ display: flex;
   }
   .links .dropdown li{
     color: #262626;
@@ -137,6 +134,11 @@ top: calc(100% + 10px);
     transition: all .3s ease-in-out;
 
    
+  }
+  header .linkDrop{
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
   .butonside{
     display: flex;
@@ -1835,7 +1837,9 @@ min-height: 40px;
     left: -100px;
     transition: .5s ease;
   }
-
+  header .dropdown{
+    position: static !important;
+  }
   header .links.active{
     flex-direction: column;
     display: flex !important;
@@ -1845,7 +1849,7 @@ min-height: 40px;
     left: 0;
     width: 75%;
     bottom: 13.2px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: start;
     padding-left: 10px;
    
@@ -1859,15 +1863,32 @@ min-height: 40px;
     top: 0 !important;
     color: #000 !important;
     align-items: start;
+ 
+    padding-top: 20px
   }
-  header .links .linksListLi.active{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+  header .links{
+    overflow-y: auto;
+    
+  }
+  header .links.active{
+    justify-content: flex-start;
+  }
+  header .links .linksList{
+    flex-direction: column;
+  }
+ 
+  header .links .linksListLi{
+
    width: 70vw;
    border-bottom: 1px solid #e5e5e5;
-   padding-bottom: 10px;
+   padding-bottom: 40px;
   }
+  header .linkDrop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  } 
+
 /* start  .motion  */
 .motion{
   min-height: 170vh;
@@ -2150,7 +2171,9 @@ header img{
   display: none;
 
 }
-
+header .dropdown{
+  position: static !important;
+}
     header .links,.butonside .btnTalk{
       display: none !important;
     }
@@ -2162,7 +2185,10 @@ header img{
       left: -100px;
       transition: .5s ease;
     }
-  
+    header .links{
+      overflow-y: auto;
+      
+    }
     header .links.active{
       flex-direction: column;
       display: flex !important;
@@ -2171,8 +2197,8 @@ header img{
       height: 100vh;
       left: 0;
       width: 75%;
-      bottom: 13.2px;
-      justify-content: center;
+      bottom: -3.5px;
+      justify-content: start;
       align-items: start;
       padding-left: 10px;
      
@@ -2180,21 +2206,25 @@ header img{
     header .links.active:hover{
       color: #3f444a;
     }
-    header .links .linksList.active{
+    header .links .linksList{
       flex-direction: column;
       left: 0 !important;
       top: 0 !important;
       color: #000 !important;
       align-items: start;
+      padding-top: 20px
     }
-    header .links .linksListLi.active{
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     width: 70vw;
-     border-bottom: 1px solid #e5e5e5;
-     padding-bottom: 10px;
-    }
+    header .links .linksListLi{
+
+      width: 70vw;
+      border-bottom: 1px solid #e5e5e5;
+      padding-bottom: 40px;
+     }
+  header .linkDrop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }   
   /* start  .motion  */
   .motion{
     min-height: 170vh;
